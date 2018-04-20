@@ -10,6 +10,7 @@ const qn = new QiniuSdk(conf);
 
 const uploadConf = {
   bucket: 'neuqst',
+  filePrefix: 'code/npm',
   version: '0.0.1',  
   key: 'roxBundle.js',
   localFile: './index.js'
