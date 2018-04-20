@@ -1,0 +1,15 @@
+{
+  "name": "qiniu-sdk",
+  "version": "0.0.1",
+  "description": "七牛文件上传 sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "qiniu": "^7.1.3"
+  }
+}
