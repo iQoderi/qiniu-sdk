@@ -33,13 +33,18 @@ class QiniuSdk {
    */
   putFile(conf) {
     const token = this.uptoken(conf.bucket);
-    let key = `${conf.version}/${conf.key}`;
+
+    let key = conf.key;
+
+    if (conf.version) {
+      key = `${conf.version}/${conf.key}`;      
+    }
 
     if (conf.filePrefix) {
       key = `${conf.filePrefix}/${key}`;
     }
 
-    return new Promise((resolve, reject) => {
+     return new Promise((resolve, reject) => {
       this.formUploader.putFile(token, key, conf.localFile, this.putExtra, (respErr, respBody, respInfo) => {
         if (respErr) {
           reject(respErr);
