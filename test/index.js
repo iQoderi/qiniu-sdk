@@ -22,3 +22,19 @@ qn.putFile(uploadConf).then((resp) => {
 }).catch((err) => {
   console.log(err);
 });
+
+const conf2 = {
+  bucket: 'neuqst',  
+  key: 'page/152/index.bundle.js'
+};
+qn.getFileInfo(
+  conf2
+).then((ret) => {
+  console.log('get', ret);
+});
+
+qn.removeFile(
+  conf2
+).then((ret) => {
+  console.log('remove', ret);
+});

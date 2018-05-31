@@ -7,6 +7,7 @@ class QiniuSdk {
 
     const config = new qiniu.conf.Config();    
 
+    this.client = new qiniu.rs.BucketManager();
     this.formUploader = new qiniu.form_up.FormUploader(config);
     this.putExtra = new qiniu.form_up.PutExtra();
   }
@@ -57,6 +58,34 @@ class QiniuSdk {
           reject(respBody);
         }
 
+      });
+    });
+  };
+
+  getFileInfo(conf) {
+    const { key, bucket } = conf;
+
+    return new Promise((resolve, reject) => {
+      this.client.stat(bucket, key, function(err, ret) {
+        if (!err) {
+          resolve(ret);
+        } else {
+          reject(err);
+        }
+      });
+    });
+  };
+
+  removeFile(conf) {
+    const { key, bucket } = conf;
+
+    return new Promise((resolve, reject) => {
+      this.client.delete(bucket, key, function(err, ret) {
+        if (!err) {
+          resolve(ret);
+        } else {
+          reject(err);
+        }
       });
     });
   }
