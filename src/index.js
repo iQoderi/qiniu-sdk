@@ -91,10 +91,10 @@ class QiniuSdk {
   };
 
   forcePutFile(conf) {
-    this.removeFile(conf).then(() => {
-      this.putFile(conf);
+    return this.removeFile(conf).then(() => {
+      return this.putFile(conf);
     }).catch(() => {
-      this.putFile(conf);
+      return this.putFile(conf);
     });  
   };
 };
