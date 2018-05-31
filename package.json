@@ -1,6 +1,6 @@
 {
   "name": "qiniu-sdk",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "七牛文件上传 sdk",
   "main": "index.js",
   "scripts": {

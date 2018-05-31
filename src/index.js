@@ -88,7 +88,15 @@ class QiniuSdk {
         }
       });
     });
-  }
+  };
+
+  forcePutFile(conf) {
+    this.removeFile().then(() => {
+      this.putFile(conf);
+    }).catch(() => {
+      this.putFile(conf);
+    });  
+  };
 };
 
 module.exports = QiniuSdk;
